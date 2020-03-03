@@ -5,6 +5,8 @@ import com.eunzi.devblog.repository.PostRepository;
 import com.eunzi.devblog.v1.api.request.PostRequest;
 import com.eunzi.devblog.v1.api.response.PostResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -20,5 +22,9 @@ public class PostService {
         return response;
     }
 
+    public Page<PostResponse> getPosts(Pageable pageable) {
+        Page<Post> posts = postRepository.findAll(pageable);
+        return posts.map(PostResponse::new);
+    }
 
 }
