@@ -1,5 +1,6 @@
 package com.eunzi.devblog.entity;
 
+import com.eunzi.devblog.v1.api.request.PostRequest;
 import lombok.Data;
 import org.springframework.data.annotation.CreatedDate;
 
@@ -32,5 +33,13 @@ public class Post {
 
     @Column(name = "view_cnt")
     private Integer viewCnt;
+
+    public static Post create(PostRequest request) {
+        Post post = new Post();
+        post.setTitle(request.getTitle());
+        post.setContent(request.getContent());
+        post.setCategory(request.getCategory());
+        return post;
+    }
 
 }
