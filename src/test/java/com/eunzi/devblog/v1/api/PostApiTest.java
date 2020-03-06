@@ -39,6 +39,11 @@ public class PostApiTest {
 
     }
 
-
+    @Test
+    public void postDetailTest() {
+        Long postId = 9l;
+        PostResponse postResponse = postService.getPostDetail(postId);
+        assertThat(postResponse.getPostId(), is(9l));
+    }
 
 }

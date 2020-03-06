@@ -5,6 +5,7 @@ import lombok.Data;
 
 @Data
 public class PostRequest {
+    private Long postId;
     private String title;
     private String content;
     private Category category;
