@@ -2,9 +2,10 @@ package com.eunzi.devblog;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 @SpringBootApplication
-public class DevblogApplication {
+public class DevblogApplication extends SpringBootServletInitializer {
 
     public static void main(String[] args) {
         SpringApplication.run(DevblogApplication.class, args);
