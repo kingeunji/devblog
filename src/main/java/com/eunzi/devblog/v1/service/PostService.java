@@ -9,6 +9,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class PostService {
 
@@ -25,6 +27,12 @@ public class PostService {
     public Page<PostResponse> getPosts(Pageable pageable) {
         Page<Post> posts = postRepository.findAll(pageable);
         return posts.map(PostResponse::new);
+    }
+
+    public PostResponse getPostDetail(Long postId) {
+        Post post = postRepository.findById(postId).get();
+        PostResponse response = new PostResponse(post);
+        return response;
     }
 
 }
