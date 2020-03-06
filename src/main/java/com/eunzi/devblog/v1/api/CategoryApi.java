@@ -12,10 +12,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RestController
@@ -27,7 +24,7 @@ public class CategoryApi {
 
     // POST /categorys
     @PostMapping("/categorys")
-    public ResponseEntity<CategoryResponse> registerCategory(CategoryRequest request) {
+    public ResponseEntity<CategoryResponse> registerCategory(@RequestBody CategoryRequest request) {
         if(StringUtils.isEmpty(request.getName())) {
             return new ResponseEntity<>(HttpStatus.CONFLICT);
         } else {
