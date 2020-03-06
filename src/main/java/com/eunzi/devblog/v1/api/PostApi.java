@@ -37,5 +37,13 @@ public class PostApi {
         Page<PostResponse> postResponses = postService.getPosts(pageable);
         return new ResponseEntity<>(postResponses, HttpStatus.OK);
     }
-    
+
+    // GET /post/{id}
+    @GetMapping("/post/{postId}")
+    public ResponseEntity<PostResponse> getPostDetail(@PathVariable Long postId) {
+        PostResponse postResponse = postService.getPostDetail(postId);
+        return new ResponseEntity<>(postResponse, HttpStatus.OK);
+    }
+
+
 }
